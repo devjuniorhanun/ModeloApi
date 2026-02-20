@@ -1,0 +1,101 @@
+Seguindo o modelo já criado, dentro no menu Lançamentos cria um novo sub menu de Agrícola, que deverar ter as entidades abaixo.
+Entidades e Modelo de Dados
+1. Serviços Agrícolas (defensives)
+Campos:
+na aba principal devera ter o titulo "Serviço Agrícola" ter os seguintes campos
+id (UUID)
+type_operation_id
+crop_id
+culture_id
+field_id
+application_date
+pump_volume
+flow
+ump_capacity
+recommended_pump_volume
+used_bomb
+difference_bomb
+applied_area
+observation
+status
+na segunda aba deverar ter o titulo "Talhões" devera ter os seguintes campos
+field_id
+area
+na terceira aba deverar ter o titulo "Operadores"
+operator_id
+fleet_id
+function deverar sera um select com as opções O para operador, e T para Tanqueiro
+na quarta aba deverar ter o titulo "Produtos" e deverar ter os seguintes campos
+product_id
+dose quando perder o foco deverar realizar uma multiplicação com os seguintes campos (dose * ump_capacity) e colocar no campo pump
+pump quando perder o foco deverar realizar uma divisão com os seguintes campos (ump_capacity / ) e colocar no campo pump
+
+
+
+Quando o campo final_closing perde o foco deve realizar a operação de substração entre os campos (final_closing - initial_closing) e jogar o resultado no campo quantity_output
+Relacionamentos:
+Um Encerrantes Diarios pertence a um Posto atravéz do campo post_id, e um Produto através do campo product_id
+
+
+2. Diario de Combustível (daily_releases)
+na aba principal devera ter os seguintes campos
+id (UUID)
+post_id
+na segunda aba devera conter, uma listview e abaixo da listview deverar ter um botão para chamar uma modal e dentro dessa modal deverar ter os campos.
+product_id
+fleet_id
+release_date
+quantity
+hour_meter_kilometer
+Relacionamentos:
+Um Diario de Combustível pertence a um Posto atravéz do campo post_id, e um Produto através do campo product_id, e a uma Frota através do campo fleet_id
+
+Seguindo o modelo já criado, dentro no menu Lançamentos cria um novo sub menu de Colheitas, que deverar ter as entidades abaixo.
+Entidades e Modelo de Dados
+3. Safras (harvest_releases)
+id (UUID)
+crop_id
+driver_id
+owner_id
+plot_field_id
+warehouse_id
+lanyard_id
+matrix_freight_id
+release_date
+shipping_number
+control_number
+gross_weight
+discount_weight
+discount
+net_weight
+liquid_bags
+gross_bags
+shipping_value
+Quando o campo discount_weight perder o foco realizar uma operação de substração dos campos (discount_weight - gross_weight) e o resultado
+deve colocar no campo net_weight, e informar o percentual de desconto dos campos (gross_weight ,discount_weight ) e colocar o resultado no campo
+discount, e realizar a operação dividir o valor do campo gross_weight por 60, e colocar o resultado no campo gross_bags
+Relacionamentos:
+Um Colheitas pertence a uma Safra atravéz do campo Colheitas, pertence a um Motorista através do campo driver_id, pertence a um Produtor através do campo
+owner_id, pertence a uma Locação de Talhão através do campo plot_field_id, pertence a um Armazém através do campo warehouse_id,
+pertence a um Colhedor através do campo lanyard_id
+
+
+na aba principal devera ter os seguintes campos
+id (UUID)
+supplier_id
+producer_id
+numbernote_number
+serie: string:10
+mission_date
+arrival_date
+total_value
+status
+na segunda aba devera conter, uma listview e abaixo da listview deverar ter um botão para chamar uma modal e dentro dessa modal deverar ter os campos.
+product_id
+quantity
+unit_value
+total_value
+quando o campo unit_value perder o foco deverar realizar a operação multiplicar o campo quantity pelo unit_value, e informar o total no campo total_value
+e quando clicar em salvar os itens da modal deverar aparecer os itens na listview, 
+Relacionamentos:
+Uma Nota pertence a um Fornecedor atravéz do campo supplier_id, deverar informar o Produtor através do campo producer_id, e na segunda aba deverar informar os produtos através do campo product_id

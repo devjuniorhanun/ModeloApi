@@ -1,0 +1,55 @@
+created:
+    - database/factories/Api/Releases/Agricultural/Services/DefensiveFactory.php
+    - database/factories/Api/Releases/Agricultural/Services/OperatorFactory.php
+    - database/factories/Api/Releases/Agricultural/Services/ProductServiceFactory.php
+    - database/factories/Api/Releases/Agricultural/Services/ProductTankerFactory.php
+    - database/migrations/2026_02_19_203919_create_defensives_table.php
+    - database/migrations/2026_02_19_203920_create_operators_table.php
+    - database/migrations/2026_02_19_203921_create_product_services_table.php
+    - database/migrations/2026_02_19_203922_create_product_tankers_table.php
+    - app/Models/Api/Releases/Agricultural/Services/Defensive.php
+    - app/Models/Api/Releases/Agricultural/Services/Operator.php
+    - app/Models/Api/Releases/Agricultural/Services/ProductService.php
+    - app/Models/Api/Releases/Agricultural/Services/ProductTanker.php
+models:
+    Api\Registrations\Admin\User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Api\Registrations\Harvest\AgriculturalYear: { id: 'char:36', name: string, opening_date: date, closing_date: date, status: 'string:1 default:A' }
+    Api\Registrations\Harvest\Crop: { id: 'char:36', agricultural_year_id: 'char:36', name: string, opening_date: date, closing_date: date, status: 'string:1 default:A' }
+    Api\Registrations\Harvest\Culture: { id: 'char:36', name: string, status: 'string:1 default:A' }
+    Api\Registrations\Harvest\VarietyCulture: { id: 'char:36', culture_id: 'char:36', name: string, technology: string, cycle: string, status: 'string:1 default:A' }
+    Api\Registrations\Propertie\Areas\Farm: { id: 'char:36', owner_id: 'char:36', producer_id: 'char:36', name: string, total_area: string, status: 'string:1 default:A' }
+    Api\Registrations\Propertie\Areas\Field: { id: 'char:36', farm_id: 'char:36', name: string, area: string, block: 'string:2', status: 'string:1 default:A' }
+    Api\Registrations\Propertie\Areas\MatrixFreight: { id: 'char:36', crop_id: 'char:36', block: 'string:2', route: 'string:2', price: string, status: 'string:1 default:A' }
+    Api\Registrations\Propertie\Areas\PlotField: { id: 'char:36', field_id: 'char:36', crop_id: 'char:36', culture_id: 'char:36', name: string, area: string, status: 'string:1 default:A' }
+    Api\Registrations\Propertie\Owner: { id: 'char:36', corporate_name: string, fantasy_name: string, payment_type: 'string:1 default:T', status: 'string:1 default:A' }
+    Api\Registrations\Propertie\Producer: { id: 'char:36', owner_id: 'char:36', status: 'string:1 default:A' }
+    Api\Registrations\Suppliers\TypeSupplier: { id: 'uuid primary', name: 'string unique', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Suppliers\Supplier: { id: 'uuid primary', corporate_reason: 'string unique', fantasy_name: 'string unique', cpf_cnpj: 'string unique', rg_ie: 'string unique', status: 'string:1 default:A', timestamps: timestamps, relationships: { belongsToMany: TypeSupplier } }
+    Api\Registrations\Suppliers\BankSupplier: { id: 'uuid primary', supplier_id: 'uuid foreign', supplier_name: string, bank_name: string, agency_number: string, account_number: string, operation_number: string, pix_key: string, account_type: 'string:1 default:C', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Suppliers\Warehouse: { id: 'uuid primary', supplier_id: 'uuid foreign', name: string, city: string, route: string, status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Suppliers\Lanyard: { id: 'uuid primary', supplier_id: 'uuid foreign', front: string, machine_quantity: integer, status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Suppliers\Driver: { id: 'uuid primary', supplier_id: 'uuid foreign', name: 'string unique', code: 'integer unique', plate: 'string unique', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Suppliers\Employee: { id: 'uuid primary', name: 'string unique', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Vehicles\FleetGroup: { id: 'uuid primary', name: 'string unique', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Vehicles\FleetBrand: { id: 'uuid primary', name: 'string unique', timestamps: timestamps }
+    Api\Registrations\Vehicles\FleetModel: { id: 'uuid primary', fleet_brand_id: 'uuid foreign', name: 'string unique', timestamps: timestamps }
+    Api\Registrations\Vehicles\Fleet: { id: 'uuid primary', fleet_group_id: 'uuid foreign', fleet_brand_id: 'uuid foreign', fleet_model_id: 'uuid foreign', name: 'string unique', code: 'integer unique', plate: 'string unique', fleet_type: 'string:1 default:O', year: 'string:4', chassi: 'string unique', acquisition_date: date, acquisition_value: 'decimal(10,2)', fuel_type: 'string:1 default:D', marking_type: 'string:1 default:H', starting_meter: 'decimal(10,2)', end_gauge: 'decimal(10,2)', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Agricultural\TypeOperation: { id: 'uuid primary', name: 'string unique', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Products\AgriculturalOperator: { id: 'uuid primary', employee_id: 'uuid foreign', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Products\ProductGroup: { id: 'uuid primary', name: 'string unique', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Products\SubGroupProduct: { id: 'uuid primary', product_group_id: 'uuid foreign', name: 'string unique', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Products\PurposeProduct: { id: 'uuid primary', name: 'string unique', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Products\Product: { id: 'uuid primary', group_product_id: 'uuid foreign', sub_group_product_id: 'uuid foreign', purpose_product_id: 'uuid foreign', name: 'string unique', stock: 'decimal(10,3) default:0.00', stock_location: string, minimum_quantity: 'decimal(10,3) default:0.00', drum_box: 'decimal(10,3) default:0.00', gallon_package: 'decimal(10,3) default:0.00', unit: 'string:1 default:K', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Registrations\Products\SupplierProduct: { id: 'uuid primary', supplier_id: 'uuid foreign', product_id: 'uuid foreign', product_code: string, volume: 'decimal(10,3)', timestamps: timestamps }
+    Api\Releases\Input\EntryInvoice: { id: 'uuid primary', supplier_id: 'uuid foreign', producer_id: 'uuid foreign', numbernote_number: integer, serie: 'string:10', emission_date: date, arrival_date: date, total_value: 'decimal(10,2)', status: 'string:1 default:A' }
+    Api\Releases\Input\EntryInvoiceProduct: { id: 'uuid primary', entry_invoice_id: 'uuid foreign', product_id: 'uuid foreign', quantity: 'decimal(10,3)', unit_value: 'decimal(10,2)', total_value: 'decimal(10,2)' }
+    Api\Registrations\Fuel\TypePost: { id: 'uuid primary', name: 'string unique', timestamps: timestamps }
+    Api\Registrations\Fuel\Post: { id: 'uuid primary', type_post_id: 'uuid foreign', name: 'string unique', timestamps: timestamps }
+    Api\Registrations\Fuel\ProductPost: { id: 'uuid primary', post_id: 'uuid foreign', product_id: 'uuid foreign', actual_stock: 'decimal(10,3)', minimum_stock: 'decimal(10,3)', maximum_stock: 'decimal(10,3)', status: 'string:1 default:A', timestamps: timestamps }
+    Api\Releases\Fuel\ClosingRelease: { id: 'uuid primary', post_id: 'uuid foreign', product_id: 'uuid foreign', release_date: date, initial_closing: 'decimal(10,1)', final_closing: 'decimal(10,1)', quantity_output: 'decimal(10,1)', quantity_entries: 'decimal(10,1)', daily_stock: 'decimal(10,1)', ruler: 'decimal(10,1)', timestamps: timestamps }
+    Api\Releases\Fuel\DailyRelease: { id: 'uuid primary', post_id: 'uuid foreign', product_id: 'uuid foreign', fleet_id: 'uuid foreign', release_date: date, quantity: 'decimal(10,1)', hour_meter_kilometer: 'decimal(10,2)', timestamps: timestamps }
+    Api\Releases\Harvest\HarvestRelease: { id: 'uuid primary', crop_id: 'uuid foreign', driver_id: 'uuid foreign', owner_id: 'uuid foreign', plot_field_id: 'uuid foreign', warehouse_id: 'uuid foreign', lanyard_id: 'uuid foreign', matrix_freight_id: 'uuid foreign', release_date: date, shipping_number: string, control_number: string, gross_weight: decimal(10), discount_weight: decimal(10), discount: 'decimal(2,2)', net_weight: 'decimal(10,2)', liquid_bags: 'decimal(10,2)', gross_bags: 'decimal(10,2)', shipping_value: 'decimal(10,2)', timestamps: timestamps }
+    Api\Releases\Agricultural\Services\Defensive: { id: 'uuid primary', type_operation_id: 'uuid foreign', crop_id: 'uuid foreign', culture_id: 'uuid foreign', field_id: 'uuid foreign', application_date: date, pump_volume: 'decimal(10,2)', flow: decimal(3), ump_capacity: 'decimal(10,2)', recommended_pump_volume: 'decimal(10,2)', used_bomb: 'decimal(10,2)', difference_bomb: 'decimal(10,2)', applied_area: 'decimal(10,2)', observation: text, status: 'string:1 default:A', timestamps: timestamps }
+    Api\Releases\Agricultural\Services\Operator: { id: 'uuid primary', defensive_id: 'uuid foreign', operator_id: 'uuid foreign', fleet_id: 'uuid foreign', function: string }
+    Api\Releases\Agricultural\Services\ProductService: { id: 'uuid primary', defensive_id: 'uuid foreign', operation_id: 'uuid foreign', product_id: 'uuid foreign', dose: 'decimal(10,2)', pump: 'decimal(10,2)', dose_used: 'decimal(10,2)', pump_used: 'decimal(10,2)' }
+    Api\Releases\Agricultural\Services\ProductTanker: { id: 'uuid primary', product_id: 'uuid foreign', operator_id: 'uuid foreign', quantity: 'decimal(10,3)' }

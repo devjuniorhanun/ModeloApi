@@ -1,0 +1,45 @@
+models:
+# Lançamentos Serviços Agrícolas
+  Api\Releases\Agricultural\Services\Defensive:
+    id: uuid primary
+    type_operation_id: uuid foreign # tipo de operação
+    crop_id: uuid foreign # safra
+    culture_id: uuid foreign # cultura
+    field_id: uuid foreign # talhão
+    application_date: date # data da aplicação    
+    pump_volume: decimal(10,2) # volume da bomba
+    flow: decimal(3) # vazão
+    ump_capacity: decimal(10,2) # capacidade de bomba
+    recommended_pump_volume: decimal(10,2) # volume recomendado da bomba
+    used_bomb: decimal(10,2) # bombas reais
+    difference_bomb: decimal(10,2) # diferença de bombas
+    applied_area: decimal(10,2) # área aplicada
+    observation: text # observação
+    status: string:1 default:A # status do lançamento (A - Aberta, F - Finalizada, C - Campo, D - Deletada)
+    timestamps: true
+
+# Lançamentos Serviços Agrícolas Operadores
+  Api\Releases\Agricultural\Services\Operator:
+    id: uuid primary
+    defensive_id: uuid foreign # lançamento defensivo
+    operator_id: uuid foreign # operador
+    fleet_id: uuid foreign # frota
+    function: string # função do operador
+
+  # Lançamentos Serviços Agrícolas Produtos
+  Api\Releases\Agricultural\Services\ProductService:
+    id: uuid primary
+    defensive_id: uuid foreign # lançamento defensivo
+    operation_id: uuid foreign # operação
+    product_id: uuid foreign # produto
+    dose: decimal(10,2) # dose aplicada por ha
+    pump: decimal(10,2) # dose aplicada por bomba
+    dose_used: decimal(10,2) # dose real aplicada por ha
+    pump_used: decimal(10,2) # dose real aplicada por bomba
+
+  # Lançamentos Serviços Agrícolas Produtos por Operador
+  Api\Releases\Agricultural\Services\ProductTanker:
+    id: uuid primary
+    product_id: uuid foreign # produto
+    operator_id: uuid foreign # operador
+    quantity: decimal(10,3) # quantidade aplicada

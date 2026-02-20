@@ -1,0 +1,71 @@
+### Login 
+POST http://localhost:81/api/auth/login
+Content-Type: application/json; charset=utf-8
+Accept: application/json
+
+{
+    "email": "admin@admin.com.br",
+    "password": "123456789"
+}
+
+### Logout 
+GET http://localhost:81/api/auth/logout
+
+
+### Cadastro de Ano Agrícola
+POST http://localhost:81/api/registrations/harvest/agricultural-years
+Content-Type: application/json; charset=utf-8
+Accept: application/json
+#Authorization: Bearer 5|pG4AQuB4zALPRXkx27f36gHu55oqHzVA4K6fMnmG1dc1eec9
+
+{
+    "name": "2023/2024",
+    "opening_date": "2023-10-01",
+    "closing_date": "2024-09-30"
+}
+
+### Lista Ano Agrícola
+GET http://localhost:81/api/registrations/harvest/agricultural-years
+Content-Type: application/json; charset=utf-8
+Accept: application/json
+
+### Cadastro de Ano Agrícola
+POST http://localhost:81/api/registrations/harvest/cultures
+Content-Type: application/json; charset=utf-8
+Accept: application/json
+Authorization: Bearer 2|EU0eBwT0XZYatUErEgXzNBOdE1c41Z3MWEuCIAK6540e7f7c
+
+{
+    "name": "SOJA"
+}
+
+
+### Cadastro de Safra
+POST http://localhost:81/api/registrations/harvest/crops
+Content-Type: application/json; charset=utf-8
+Accept: application/json
+Authorization: Bearer 2|86yKc7IZIP9pxAGFVRCelvVcVhILFud44FK37CKdf5fa5b28
+
+{
+    "agricultural_year_id": "019c5c7c-93bd-732f-8fec-06edfc27e9f3",
+    "name": "Safra 2023/2024",
+    "culture_ids": ["019c5cfa-56d4-71a0-985e-b06c682e4a13",], // Assuming the culture with ID 1 exists
+    "opening_date": "2023-10-01",
+    "closing_date": "2024-09-30",
+    "status": "A"
+
+}
+
+### Listagem de Safra
+GET http://localhost:81/api/registrations/harvest/crops
+Content-Type: application/json; charset=utf-8
+Accept: application/json
+Authorization: Bearer 2|86yKc7IZIP9pxAGFVRCelvVcVhILFud44FK37CKdf5fa5b28
+
+### Listagem de Produtor
+GET http://localhost:81/api/registrations/properties/producers
+Content-Type: application/json; charset=utf-8
+Accept: application/json
+Authorization: Bearer 2|86yKc7IZIP9pxAGFVRCelvVcVhILFud44FK37CKdf5fa5b28
+
+
