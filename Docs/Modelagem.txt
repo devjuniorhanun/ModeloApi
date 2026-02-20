@@ -4,13 +4,12 @@ Entidades e Modelo de Dados
 Campos:
 na aba principal devera ter o titulo "Serviço Agrícola" ter os seguintes campos
 id (UUID)
-type_operation_id
 crop_id
 culture_id
-field_id
+type_operation_id
 application_date
 pump_volume
-flow
+flow quando perder o foco deverar efeturar uma divição entre os campos (pump_volume / flow) e colocar o resultado no campo ump_capacity
 ump_capacity
 recommended_pump_volume
 used_bomb
@@ -18,23 +17,21 @@ difference_bomb
 applied_area
 observation
 status
-na segunda aba deverar ter o titulo "Talhões" devera ter os seguintes campos
+na segunda aba deverar ter o titulo "Talhões",devera ter uma listview e abaixo da listview deverar ter um botão para chamar uma modal e dentro dessa modal deverar ter os campos.
 field_id
 area
-na terceira aba deverar ter o titulo "Operadores"
+na terceira aba deverar ter o titulo "Operadores",devera ter uma listview e abaixo da listview deverar ter um botão para chamar uma modal e dentro dessa modal deverar ter os campos.
 operator_id
 fleet_id
 function deverar sera um select com as opções O para operador, e T para Tanqueiro
-na quarta aba deverar ter o titulo "Produtos" e deverar ter os seguintes campos
+na quarta aba deverar ter o titulo "Produtos",devera ter uma listview e abaixo da listview deverar ter um botão para chamar uma modal e dentro dessa modal deverar ter os campos.
 product_id
 dose quando perder o foco deverar realizar uma multiplicação com os seguintes campos (dose * ump_capacity) e colocar no campo pump
-pump quando perder o foco deverar realizar uma divisão com os seguintes campos (ump_capacity / ) e colocar no campo pump
-
-
-
-Quando o campo final_closing perde o foco deve realizar a operação de substração entre os campos (final_closing - initial_closing) e jogar o resultado no campo quantity_output
+pump quando perder o foco deverar realizar uma divisão com os seguintes campos (ump_capacity / pump ) e colocar no campo dose
 Relacionamentos:
-Um Encerrantes Diarios pertence a um Posto atravéz do campo post_id, e um Produto através do campo product_id
+Um Serviços Agrícolas pertence a um Tipo de Operação atravéz do campo type_operation_id, e uma Safra através do campo crop_id,
+a uma cultura através do campo culture_id, a um Talhão através do campo field_id, a um Operador através do campo operator_id,
+a uma Frota através do campo fleet_id, e a um produto através do campo product_id
 
 
 2. Diario de Combustível (daily_releases)

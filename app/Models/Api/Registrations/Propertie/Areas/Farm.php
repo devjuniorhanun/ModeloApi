@@ -2,6 +2,8 @@
 
 namespace App\Models\Api\Registrations\Propertie\Areas;
 
+use App\Models\Api\Registrations\Propertie\Owner;
+use App\Models\Api\Registrations\Propertie\Producer;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,11 +28,11 @@ class Farm extends Model
 
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Propertie\Owner::class);
+        return $this->belongsTo(Owner::class);
     }
 
     public function producer(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Propertie\Producer::class);
+        return $this->belongsTo(Producer::class);
     }
 }
