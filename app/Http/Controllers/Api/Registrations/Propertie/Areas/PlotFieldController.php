@@ -51,4 +51,28 @@ class PlotFieldController extends Controller
     {
         //
     }
+
+    public function getFreeAreaByField(string $cropId,string $fieldId)
+    {
+        $totalArea = PlotField::where('crop_id', $cropId)->where('field_id', $fieldId)->sum('area');
+        
+        return response()->json(['free_area' => $totalArea]);
+    }
+
+    /*
+    public function free_area($farmId)
+     {
+         $fields = Field::where('farm_id', $farmId)->get();
+         $totalArea = 0;
+         foreach ($fields as $field) {
+             $totalArea += $field->area;
+         }
+ 
+         $farm = Farm::find($farmId);
+         //dd($farm->total_area);
+         $freeArea = $farm->total_area - $totalArea;
+ 
+         return response()->json(['free_area' => $freeArea]);
+     }  
+    */
 }

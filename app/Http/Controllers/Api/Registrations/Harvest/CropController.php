@@ -57,15 +57,14 @@ class CropController extends Controller
     {
         //
     }
-/*
+
+    // Método para obter os IDs das culturas associadas a um crop específico
     public function getCropByCulture($cropsId)
     {
-        //dd($cropsId);
-        $crops = Crop::with('cultures')->findOrFail($cropsId)->get();
+        $culture_ids = Crop::findOrFail($cropsId)->cultures()->pluck('id');
 
-        //return response()->json($crops);
-        return CropResource::collection($crops);
-        //return response()->json($crops);
+        return response()->json(['culture_ids' => $culture_ids]);
+        
     }
-        */
+        
 }
