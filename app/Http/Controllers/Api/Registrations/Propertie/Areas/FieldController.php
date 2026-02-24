@@ -51,4 +51,13 @@ class FieldController extends Controller
     {
         //
     }
+
+    public function farms_fields($farmId)
+    {
+        //dd($farmId);
+        
+        $fields = Field::with('farm')->where('farm.id', $farmId)->get();
+        return response()->json($fields);
+        
+    }
 }

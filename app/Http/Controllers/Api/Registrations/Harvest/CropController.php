@@ -57,4 +57,15 @@ class CropController extends Controller
     {
         //
     }
+/*
+    public function getCropByCulture($cropsId)
+    {
+        //dd($cropsId);
+        $crops = Crop::with('cultures')->findOrFail($cropsId)->get();
+
+        //return response()->json($crops);
+        return CropResource::collection($crops);
+        //return response()->json($crops);
+    }
+        */
 }

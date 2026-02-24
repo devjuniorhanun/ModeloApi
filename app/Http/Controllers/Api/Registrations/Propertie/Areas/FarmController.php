@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Registrations\Propertie\Areas;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\Registrations\Propertie\Areas\FarmResource;
 use App\Models\Api\Registrations\Propertie\Areas\Farm;
+use App\Models\Api\Registrations\Propertie\Areas\Field;
 use Illuminate\Http\Request;
 
 class FarmController extends Controller
@@ -52,4 +53,19 @@ class FarmController extends Controller
     {
         //
     }
+
+    public function free_area($farmId)
+     {
+         $fields = Field::where('farm_id', $farmId)->get();
+         $totalArea = 0;
+         foreach ($fields as $field) {
+             $totalArea += $field->area;
+         }
+ 
+         $farm = Farm::find($farmId);
+         //dd($farm->total_area);
+         $freeArea = $farm->total_area - $totalArea;
+ 
+         return response()->json(['free_area' => $freeArea]);
+     }  
 }
