@@ -53,4 +53,10 @@ class VarietyCultureController extends Controller
     {
         //
     }
+
+    public function getVarietyCultureByCulture(string $varietieId)
+    {
+        $varietyCultures = VarietyCulture::where('culture_id', $varietieId)->get();
+        return response()->json($varietyCultures);
+    }
 }

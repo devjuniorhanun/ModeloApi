@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignUuid('field_id')->constrained();
             $table->foreignUuid('crop_id')->constrained();
             $table->foreignUuid('culture_id')->constrained();
-            $table->string('name');
+            $table->foreignUuid('variety_culture_id')->constrained();
             $table->string('area');
             $table->string('status', 1)->default('A');
             $table->timestamps();

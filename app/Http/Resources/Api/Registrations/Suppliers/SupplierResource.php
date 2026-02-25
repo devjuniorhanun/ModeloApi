@@ -14,6 +14,20 @@ class SupplierResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'corporate_reason' => $this->corporate_reason,
+            'fantasy_name' => $this->fantasy_name,
+            'cpf_cnpj' => $this->cpf_cnpj,
+            'rg_ie' => $this->rg_ie,
+            'bank_name' => $this->bankSupplier->bank_name,
+            'agency_number' => $this->bankSupplier->agency_number,
+            'account_number' => $this->bankSupplier->account_number,
+            'operation_number' => $this->bankSupplier->operation_number,
+            'account_type' => $this->bankSupplier->account_type,
+            'pix_key' => $this->bankSupplier->pix_key,
+            'type_supplier_ids' => $this->typeSuppliers->pluck('id'),
+            'status' => $this->status,
+        ];
     }
 }

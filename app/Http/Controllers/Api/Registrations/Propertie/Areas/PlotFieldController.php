@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Registrations\Propertie\Areas;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\Registrations\Propertie\Areas\PlotFieldResource;
+use App\Models\Api\Registrations\Propertie\Areas\Field;
 use App\Models\Api\Registrations\Propertie\Areas\PlotField;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class PlotFieldController extends Controller
      */
     public function index()
     {
-        $plotFields = PlotField::with('field', 'crop', 'culture')->get();
+        $plotFields = PlotField::with('field', 'crop', 'culture','varietyCulture')->get();
         return PlotFieldResource::collection($plotFields);
         //return response()->json($plotFields);
     }
@@ -54,9 +55,11 @@ class PlotFieldController extends Controller
 
     public function getFreeAreaByField(string $cropId,string $fieldId)
     {
-        $totalArea = PlotField::where('crop_id', $cropId)->where('field_id', $fieldId)->sum('area');
+        $usedArea = PlotField::where('crop_id', $cropId)->where('field_id', $fieldId)->sum('area');
+        $field = Field::find($fieldId);
+        $freeArea = $field->area - $usedArea;
         
-        return response()->json(['free_area' => $totalArea]);
+        return response()->json(['free_area' => $freeArea]);
     }
 
     /*

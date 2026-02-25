@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('corporate_reason')->unique();
             $table->string('fantasy_name')->unique();
+            $table->string('type', 1)->default('F');
             $table->string('cpf_cnpj')->unique();
             $table->string('rg_ie')->unique();
             $table->string('status', 1)->default('A');

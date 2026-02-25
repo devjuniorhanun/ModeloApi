@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('supplier_type_supplier', function (Blueprint $table) {
-            $table->foreignId('supplier_id');
-            $table->foreignId('type_supplier_id');
+            $table->foreignUuid('supplier_id');
+            $table->foreignUuid('type_supplier_id');
         });
     }
 

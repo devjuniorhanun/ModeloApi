@@ -3,20 +3,19 @@
 namespace App\Http\Controllers\Api\Registrations\Suppliers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\Registrations\Suppliers\SupplierResource;
-use App\Models\Api\Registrations\Suppliers\Supplier;
+use App\Http\Resources\Api\Registrations\Suppliers\DriverResource;
+use App\Models\Api\Registrations\Suppliers\Driver;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class SupplierController extends Controller
+class DriverController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $suppliers = Supplier::with('typeSuppliers', 'bankSupplier')->get();
-        return SupplierResource::collection($suppliers);
+        $drivers = Driver::with('supplier')->get();
+        return DriverResource::collection($drivers);
     }
 
     /**
@@ -24,15 +23,8 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        DB::transaction(function () use ($request) {
-            
-        
-        $supplier = Supplier::create($request->all());
-        $supplier->bankSupplier()->create($request->all());
-        $supplier->typeSuppliers()->sync($request->input('type_supplier_ids', []));
-
-        return response()->json($supplier, 201);
-        });
+        $driver = Driver::create($request->all());
+        return response()->json($driver, 201);
     }
 
     /**

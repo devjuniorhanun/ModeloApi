@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignUuid('supplier_id')->constrained();
             $table->string('front');
             $table->integer('machine_quantity');
+            $table->integer('number_feet');
             $table->string('status', 1)->default('A');
             $table->timestamps();
         });

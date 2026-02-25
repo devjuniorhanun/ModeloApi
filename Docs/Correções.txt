@@ -1,23 +1,6 @@
-No formulário Nova Fazenda, no campo Proprietário deve buscar a razão social.
-no campo Área Total (ha) deve ter uma mascara de no estilo 00,00 sendo automaticamente formatada, e na hora de enviar trocar a vircula por ponto
-Na listagem e detalhes de fazer no campo total_area trocar o ponto por vírgula
+no Detalhes do Fornecedor no campo Tipo de Conta de ficar CORRENT para C E POUPANÇA PARA P
 
-----------------------------
-No formulário Novo Talhão
-o campo Área (ha) deve ter uma mascara de no estilo 00,00 sendo automaticamente formatada, e na hora de enviar trocar a vircula por ponto, e assim que ele perde o foco deverar enviar o id da fazenda para a api, e realizar uma pesquina e verificar se o campo e maior ou igual ao valor retornado na api, deverar usar o endpoint ("")
+no formulário Novo Colhedor incluir o campo number_feet, esse campo so podera aceita números
 
+no formulário Novo Motorista retirar o campo Área
 
----------------------------------------------------
-No formulário Nova Locação de Talhão
-deverar retirar o campo nome
-assim que o campo Área (ha) perder o foco deverar realizar uma pesquina na api usando o endpoint (""), e deverar passar o campo Talhão selecionado, e vericicar se o campo Área (ha) e menor ou igual ao valor retornado.
-
-
-----------------------------------------------------------
-No Formulário Nova Matriz de Frete remover o campo Rota
-Na listagem e no detalhe  formatar o campo Preço com a mascara R$ 00,00
-
-
---------------------------------------------------------
-No Formulário Novo Fornecedor no campo Tipo de Conta colocar para selecionar P para Poupança e C para Corrente
-no campo CPF/CNPJ deixar com duas mascaras para poder usar mascara para 

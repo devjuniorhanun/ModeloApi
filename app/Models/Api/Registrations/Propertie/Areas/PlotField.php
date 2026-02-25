@@ -2,7 +2,7 @@
 
 namespace App\Models\Api\Registrations\Propertie\Areas;
 
-use App\Models\Api\Registrations\Harvest\{Crop, Culture};
+use App\Models\Api\Registrations\Harvest\{Crop, Culture, VarietyCulture};
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -21,7 +21,7 @@ class PlotField extends Model
         'field_id',
         'crop_id',
         'culture_id',
-        'name',
+        'variety_culture_id',
         'area',
         'status',
     ];
@@ -39,5 +39,10 @@ class PlotField extends Model
     public function culture(): BelongsTo
     {
         return $this->belongsTo(Culture::class);
+    }
+
+    public function varietyCulture(): BelongsTo
+    {
+        return $this->belongsTo(VarietyCulture::class);
     }
 }

@@ -20,6 +20,7 @@ class Lanyard extends Model
         'supplier_id',
         'front',
         'machine_quantity',
+        'number_feet',
         'status',
     ];
 
