@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Api\Registrations\Suppliers;
+namespace App\Http\Resources\Api\Registrations\Supplier;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -20,6 +20,8 @@ class SupplierResource extends JsonResource
             'fantasy_name' => $this->fantasy_name,
             'cpf_cnpj' => $this->cpf_cnpj,
             'rg_ie' => $this->rg_ie,
+            'type' => $this->type,
+            'supplier_name' => $this->bankSupplier->supplier_name,
             'bank_name' => $this->bankSupplier->bank_name,
             'agency_number' => $this->bankSupplier->agency_number,
             'account_number' => $this->bankSupplier->account_number,

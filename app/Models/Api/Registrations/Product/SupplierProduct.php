@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models\Api\Registrations\Products;
+namespace App\Models\Api\Registrations\Product;
 
+use App\Models\Api\Registrations\Supplier\Supplier;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Registrations\Vehicle;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\Registrations\Vehicle\FleetModelResource;
 use App\Models\Api\Registrations\Vehicle\FleetModel;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,8 @@ class FleetModelController extends Controller
      */
     public function index()
     {
-        $fleetModels = FleetModel::all();
-        return response()->json($fleetModels);
+        $fleetModels = FleetModel::with('fleetBrand')->get();
+        return FleetModelResource::collection($fleetModels);
     }
 
     /**

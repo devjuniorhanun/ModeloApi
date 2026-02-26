@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Api\Registrations\Products;
+namespace App\Models\Api\Registrations\Product;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,9 +17,8 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'group_product_id',
+        'product_group_id',
         'sub_group_product_id',
-        'purpose_product_id',
         'name',
         'stock',
         'stock_location',
@@ -32,7 +31,7 @@ class Product extends Model
 
     public function groupProduct(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Products\SubGroupProduct::class);
+        return $this->belongsTo(ProductGroup::class);
     }
 
     public function subGroupProduct(): BelongsTo

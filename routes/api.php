@@ -3,11 +3,12 @@
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\Registrations\Agricultural\{AgriculturalOperatorController, TypeOperationController};
 use App\Http\Controllers\Api\Registrations\Harvest\{AgriculturalYearController, CropController, CultureController, VarietyCultureController};
-use App\Http\Controllers\Api\Registrations\Products\ProductGroupController;
+use App\Http\Controllers\Api\Registrations\Product\{ProductController, ProductGroupController, PurposeProductController, SubGroupProductController};
 use App\Http\Controllers\Api\Registrations\Propertie\{OwnerController, ProducerController};
 use App\Http\Controllers\Api\Registrations\Propertie\Areas\{FarmController, FieldController, MatrixFreightController, PlotFieldController};
 use App\Http\Controllers\Api\Registrations\Supplier\{DriverController, EmployeeController, LanyardController, SupplierController, TypeSupplierController, WarehouseController};
 use App\Http\Controllers\Api\Registrations\Vehicle\{FleetBrandController, FleetController, FleetGroupController, FleetModelController};
+use App\Http\Controllers\Api\Releases\Agricultural\Services\{DefensiveController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +55,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/registrations/agricultural/agricultural-operators', AgriculturalOperatorController::class);
 
     Route::resource('/registrations/products/product-groups', ProductGroupController::class);
+    Route::resource('/registrations/products/sub-group-products', SubGroupProductController::class);
+    Route::get('/registrations/products/product-groups/{productGroupId}/sub-group-products', [SubGroupProductController::class, 'getSubGroupProductsByProductGroup']);
+    //registrations/products/product-groups/019c9a33-ae7c-71d7-a768-064844b1a6e2/sub-group-products
+    Route::resource('/registrations/products/purpose-products', PurposeProductController::class);
+    Route::resource('/registrations/products/products', ProductController::class);
+
+    Route::resource('/entries/agricultural/defensives', DefensiveController::class);
 
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 });

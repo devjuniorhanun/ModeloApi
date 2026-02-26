@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\Registrations\Supplier;
 use App\Http\Controllers\Controller;
 use App\Models\Api\Registrations\Supplier\Warehouse;
 use Illuminate\Http\Request;
-use App\Http\Resources\Api\Registrations\Suppliers\WarehouseResource;
+use App\Http\Resources\Api\Registrations\Supplier\WarehouseResource;
 
 class WarehouseController extends Controller
 {

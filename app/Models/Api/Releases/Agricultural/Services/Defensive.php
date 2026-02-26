@@ -2,6 +2,9 @@
 
 namespace App\Models\Api\Releases\Agricultural\Services;
 
+use App\Models\Api\Registrations\Agricultural\{TypeOperation};
+use App\Models\Api\Registrations\Harvest\{Crop, Culture};
+use App\Models\Api\Registrations\Propertie\Areas\Field;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -47,12 +50,12 @@ class Defensive extends Model
 
     public function typeOperation(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Agricultural\TypeOperation::class);
+        return $this->belongsTo(TypeOperation::class);
     }
 
     public function crop(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Harvest\Crop::class);
+        return $this->belongsTo(Crop::class);
     }
 
     public function culture(): BelongsTo

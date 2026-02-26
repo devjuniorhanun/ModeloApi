@@ -15,9 +15,8 @@ return new class extends Migration
 
         Schema::create('products', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('group_product_id')->constrained();
+            $table->foreignUuid('product_group_id')->constrained();
             $table->foreignUuid('sub_group_product_id')->constrained();
-            $table->foreignUuid('purpose_product_id')->constrained();
             $table->string('name')->unique();
             $table->string('stock')->default('0.00');
             $table->string('stock_location');

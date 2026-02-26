@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Api\Registrations\Suppliers;
+namespace App\Http\Resources\Api\Registrations\Supplier;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class WarehouseResource extends JsonResource
+class DriverResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,8 +19,8 @@ class WarehouseResource extends JsonResource
             'supplier_name' => $this->supplier->fantasy_name,
             'supplier_id' => $this->supplier->id,
             'name' => $this->name,
-            'city' => $this->city,
-            'route' => $this->route,
+            'code' => $this->code,
+            'plate' => $this->plate,
             'status' => $this->status,
         ];
     }

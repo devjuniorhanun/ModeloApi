@@ -1,3 +1,0 @@
-no formulário Nova Frota no campo Tipo de Marcação colocar para selecionar H para HORIMETRO E K PARA QUILÔMETRO, no campo Tipo de Combustível colocar para marcar A para S-500, B para S-10, 
-retirar a validação do campo Placa
-em Detalhes da Frota no campo Combustível colocar S-500 PARA A, S-10 PARA B

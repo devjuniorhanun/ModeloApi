@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Registrations\Supplier;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\Registrations\Supplier\DriverResource;
-use App\Models\Api\Registrations\Suppliers\Driver;
+use App\Models\Api\Registrations\Supplier\Driver;
 use Illuminate\Http\Request;
 
 class DriverController extends Controller

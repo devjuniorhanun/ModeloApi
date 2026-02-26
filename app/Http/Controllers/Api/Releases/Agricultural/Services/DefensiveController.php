@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Api\Registrations\Products;
+namespace App\Http\Controllers\Api\Releases\Agricultural\Services;
 
 use App\Http\Controllers\Controller;
-use App\Models\Api\Registrations\Products\ProductGroup;
+use App\Models\Api\Releases\Agricultural\Services\Defensive;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class ProductGroupController extends Controller
+class DefensiveController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $productGroups = ProductGroup::all();
-        return response()->json($productGroups);
+        $Defensives = Defensive::with('typeOperation', 'crop', 'culture', 'field')->get();
+        return response()->json($Defensives);
     }
 
     /**
@@ -22,9 +23,11 @@ class ProductGroupController extends Controller
      */
     public function store(Request $request)
     {
-        $productGroup = ProductGroup::create($request->all());
+        DB::transaction(function () use ($request) {
+            $defensive = Defensive::create($request->all());
+            return response()->json($defensive, 201);
 
-        return response()->json($productGroup, 201);
+        });
     }
 
     /**

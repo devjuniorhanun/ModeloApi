@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Api\Registrations\Supplier;
+namespace App\Http\Controllers\Api\Registrations\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\Registrations\Supplier\LanyardResource;
-use App\Models\Api\Registrations\Supplier\Lanyard;
+use App\Models\Api\Registrations\Product\ProductGroup;
 use Illuminate\Http\Request;
 
-class LanyardController extends Controller
+class ProductGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $lanyards = Lanyard::with('supplier')->get();
-        return LanyardResource::collection($lanyards);
+        $productGroups = ProductGroup::all();
+        return response()->json($productGroups);
     }
 
     /**
@@ -23,8 +22,9 @@ class LanyardController extends Controller
      */
     public function store(Request $request)
     {
-        $lanyard = Lanyard::create($request->all());
-        return response()->json($lanyard, 201);
+        $productGroup = ProductGroup::create($request->all());
+
+        return response()->json($productGroup, 201);
     }
 
     /**

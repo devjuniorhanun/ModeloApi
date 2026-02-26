@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Api\Registrations\Admin\User;
 use App\Models\Api\Registrations\Harvest\AgriculturalYear;
 use App\Models\Api\Registrations\Harvest\Culture;
-use App\Models\Api\Registrations\Suppliers\TypeSupplier;
+use App\Models\Api\Registrations\Supplier\TypeSupplier;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
