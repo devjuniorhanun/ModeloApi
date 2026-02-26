@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models\Api\Registrations\Suppliers;
+namespace App\Models\Api\Registrations\Supplier;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Driver extends Model
+class BankSupplier extends Model
 {
     use HasFactory, HasUuids;
 
@@ -18,9 +18,13 @@ class Driver extends Model
      */
     protected $fillable = [
         'supplier_id',
-        'name',
-        'code',
-        'plate',
+        'supplier_name',
+        'bank_name',
+        'agency_number',
+        'account_number',
+        'operation_number',
+        'pix_key',
+        'account_type',
         'status',
     ];
 

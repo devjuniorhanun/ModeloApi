@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Api\Registrations\Admin\User;
 use App\Models\Api\Registrations\Harvest\AgriculturalYear;
 use App\Models\Api\Registrations\Harvest\Culture;
+use App\Models\Api\Registrations\Suppliers\TypeSupplier;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -27,13 +28,6 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        /*AgriculturalYear::create([
-            'name' => '2023/2024',
-            'opening_date' => '2023-01-01',
-            'closing_date' => '2024-12-31',
-            'status' => 'A',
-        ]);*/
-
         Culture::create([
             'name' => 'SOJA',
             'status' => 'A',
@@ -44,6 +38,22 @@ class DatabaseSeeder extends Seeder
         ]);
         Culture::create([
             'name' => 'MILHETO',
+            'status' => 'A',
+        ]);
+
+        TypeSupplier::create([
+            'id' => '019c9714-a6b4-70c1-86c3-e24b4a3c1567',
+            'name' => 'ARMAZÉM',
+            'status' => 'A',
+        ]);
+        TypeSupplier::create([
+            'id' => '019c970e-8ded-71f7-ba5e-9ea035465327',
+            'name' => 'COLHEDOR',
+            'status' => 'A',
+        ]);
+        TypeSupplier::create([
+            'id' => '019c970e-7962-7023-a190-aa0c65b1ac5c',
+            'name' => 'TRANSPORTADOR',
             'status' => 'A',
         ]);
 

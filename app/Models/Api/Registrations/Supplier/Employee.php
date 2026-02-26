@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models\Api\Registrations\Vehicles;
+namespace App\Models\Api\Registrations\Supplier;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class FleetModel extends Model
+class Employee extends Model
 {
     use HasFactory, HasUuids;
 
@@ -17,12 +16,7 @@ class FleetModel extends Model
      * @var array
      */
     protected $fillable = [
-        'fleet_brand_id',
         'name',
+        'status',
     ];
-
-    public function fleetBrand(): BelongsTo
-    {
-        return $this->belongsTo(FleetBrand::class);
-    }
 }

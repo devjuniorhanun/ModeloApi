@@ -1,6 +1,3 @@
-no Detalhes do Fornecedor no campo Tipo de Conta de ficar CORRENT para C E POUPANÇA PARA P
-
-no formulário Novo Colhedor incluir o campo number_feet, esse campo so podera aceita números
-
-no formulário Novo Motorista retirar o campo Área
-
+no formulário Nova Frota no campo Tipo de Marcação colocar para selecionar H para HORIMETRO E K PARA QUILÔMETRO, no campo Tipo de Combustível colocar para marcar A para S-500, B para S-10, 
+retirar a validação do campo Placa
+em Detalhes da Frota no campo Combustível colocar S-500 PARA A, S-10 PARA B

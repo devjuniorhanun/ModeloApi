@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Api\Registrations\Suppliers;
+namespace App\Http\Controllers\Api\Registrations\Agricultural;
 
 use App\Http\Controllers\Controller;
-use App\Models\Api\Registrations\Suppliers\TypeSupplier;
+use App\Models\Api\Registrations\Agricultural\TypeOperation;
 use Illuminate\Http\Request;
-use Nette\Utils\Type;
 
-class TypeSupplierController extends Controller
+class TypeOperationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $typeSupplier = TypeSupplier::all();
-        return response()->json($typeSupplier);
+        $typeOperations = TypeOperation::all();
+        return response()->json($typeOperations);
     }
 
     /**
@@ -23,8 +22,8 @@ class TypeSupplierController extends Controller
      */
     public function store(Request $request)
     {
-        $date = TypeSupplier::create($request->all());
-        return response()->json($date, 201);
+        $typeOperation = TypeOperation::create($request->all());
+        return response()->json($typeOperation, 201);
     }
 
     /**

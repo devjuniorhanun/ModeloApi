@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models\Api\Registrations\Suppliers;
+namespace App\Models\Api\Registrations\Vehicle;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Warehouse extends Model
+class FleetBrand extends Model
 {
     use HasFactory, HasUuids;
 
@@ -17,15 +16,6 @@ class Warehouse extends Model
      * @var array
      */
     protected $fillable = [
-        'supplier_id',
         'name',
-        'city',
-        'route',
-        'status',
     ];
-
-    public function supplier(): BelongsTo
-    {
-        return $this->belongsTo(Supplier::class);
-    }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Api\Registrations\Suppliers;
+namespace App\Http\Resources\Api\Registrations\Agricultural;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class DriverResource extends JsonResource
+class AgriculturalOperatorResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,11 +16,8 @@ class DriverResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'supplier_name' => $this->supplier->fantasy_name,
-            'supplier_id' => $this->supplier->id,
-            'name' => $this->name,
-            'code' => $this->code,
-            'plate' => $this->plate,
+            'employee_id' => $this->employee_id,
+            'employee_name' => $this->employee->name,
             'status' => $this->status,
         ];
     }

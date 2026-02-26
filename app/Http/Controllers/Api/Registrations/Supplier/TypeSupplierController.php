@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Api\Registrations\Suppliers;
+namespace App\Http\Controllers\Api\Registrations\Supplier;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\Registrations\Suppliers\DriverResource;
-use App\Models\Api\Registrations\Suppliers\Driver;
+use App\Models\Api\Registrations\Supplier\TypeSupplier;
 use Illuminate\Http\Request;
+use Nette\Utils\Type;
 
-class DriverController extends Controller
+class TypeSupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $drivers = Driver::with('supplier')->get();
-        return DriverResource::collection($drivers);
+        $typeSupplier = TypeSupplier::all();
+        return response()->json($typeSupplier);
     }
 
     /**
@@ -23,8 +23,8 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        $driver = Driver::create($request->all());
-        return response()->json($driver, 201);
+        $date = TypeSupplier::create($request->all());
+        return response()->json($date, 201);
     }
 
     /**

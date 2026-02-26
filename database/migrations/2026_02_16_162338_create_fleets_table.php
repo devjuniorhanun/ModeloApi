@@ -23,9 +23,9 @@ return new class extends Migration
             $table->string('plate')->unique();
             $table->string('fleet_type', 1)->default('O');
             $table->string('year', 4);
-            $table->string('chassi')->unique();
-            $table->date('acquisition_date');
-            $table->string('acquisition_value');
+            $table->string('chassi')->nullable();
+            $table->date('acquisition_date')->nullable();
+            $table->string('acquisition_value')->nullable();
             $table->string('fuel_type', 1)->default('D');
             $table->string('marking_type', 1)->default('H');
             $table->string('starting_meter');

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api\Registrations\Suppliers;
+namespace App\Http\Controllers\Api\Registrations\Supplier;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\Registrations\Suppliers\SupplierResource;
+use App\Http\Resources\Api\Registrations\Supplier\SupplierResource;
 use App\Models\Api\Registrations\Suppliers\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

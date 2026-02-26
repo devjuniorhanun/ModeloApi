@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Models\Api\Registrations\Agricultural;
+namespace App\Models\Api\Registrations\Supplier;
 
-use App\Models\Api\Registrations\Supplier\Employee;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class AgriculturalOperator extends Model
+class TypeSupplier extends Model
 {
     use HasFactory, HasUuids;
 
@@ -18,12 +16,7 @@ class AgriculturalOperator extends Model
      * @var array
      */
     protected $fillable = [
-        'employee_id',
+        'name',
         'status',
     ];
-
-    public function employee(): BelongsTo
-    {
-        return $this->belongsTo(Employee::class);
-    }
 }

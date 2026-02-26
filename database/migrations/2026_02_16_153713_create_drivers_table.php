@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('supplier_id')->constrained();
             $table->string('name')->unique();
-            $table->integer('code')->unique();
+            $table->string('code')->unique();
             $table->string('plate')->unique();
             $table->string('status', 1)->default('A');
             $table->timestamps();
