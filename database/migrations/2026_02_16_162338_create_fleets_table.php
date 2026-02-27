@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignUuid('fleet_brand_id')->constrained();
             $table->foreignUuid('fleet_model_id')->constrained();
             $table->string('name')->unique();
-            $table->integer('code')->unique();
+            $table->string('code')->unique();
             $table->string('plate')->unique();
             $table->string('fleet_type', 1)->default('O');
             $table->string('year', 4);

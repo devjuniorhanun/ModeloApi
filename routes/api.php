@@ -62,6 +62,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/registrations/products/products', ProductController::class);
 
     Route::resource('/entries/agricultural/defensives', DefensiveController::class);
+    Route::get('/entries/agricultural/defensives/free_area/{fieldId}', [DefensiveController::class, 'getFreeArea']);
 
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 });

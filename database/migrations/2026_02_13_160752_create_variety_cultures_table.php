@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('technology');
             $table->string('cycle');
+            $table->string('flowering_days');
             $table->string('status', 1)->default('A');
             $table->timestamps();
         });

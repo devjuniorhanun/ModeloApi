@@ -21,6 +21,7 @@ class VarietyCulture extends Model
         'name',
         'technology',
         'cycle',
+        'flowering_days',
         'status',
     ];
 

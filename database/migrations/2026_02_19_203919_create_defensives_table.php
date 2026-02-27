@@ -23,11 +23,11 @@ return new class extends Migration
             $table->string('pump_volume');
             $table->string('flow');
             $table->string('ump_capacity');
-            $table->string('recommended_pump_volume');
-            $table->string('used_bomb');
-            $table->string('difference_bomb');
-            $table->string('applied_area');
-            $table->text('observation');
+            $table->string('recommended_pump_volume')->nullable();
+            $table->string('used_bomb')->nullable();
+            $table->string('difference_bomb')->nullable();
+            $table->string('applied_area')->nullable();
+            $table->text('observation')->nullable();
             $table->string('status', 1)->default('A');
             $table->timestamps();
         });

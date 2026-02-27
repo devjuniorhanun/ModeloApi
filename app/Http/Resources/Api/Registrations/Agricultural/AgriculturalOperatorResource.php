@@ -18,6 +18,7 @@ class AgriculturalOperatorResource extends JsonResource
             'id' => $this->id,
             'employee_id' => $this->employee_id,
             'employee_name' => $this->employee->name,
+            'operator_name' => $this->employee->name,
             'status' => $this->status,
         ];
     }

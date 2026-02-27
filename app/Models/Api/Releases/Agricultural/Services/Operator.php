@@ -2,6 +2,8 @@
 
 namespace App\Models\Api\Releases\Agricultural\Services;
 
+use App\Models\Api\Registrations\Agricultural\AgriculturalOperator;
+use App\Models\Api\Registrations\Vehicle\Fleet;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +20,7 @@ class Operator extends Model
      */
     protected $fillable = [
         'defensive_id',
-        'operator_id',
+        'agriculturalOperator_id',
         'fleet_id',
         'function',
     ];
@@ -28,13 +30,13 @@ class Operator extends Model
         return $this->belongsTo(Defensive::class);
     }
 
-    public function operator(): BelongsTo
+    public function agriculturalOperator(): BelongsTo
     {
-        return $this->belongsTo(Operator::class);
+        return $this->belongsTo(AgriculturalOperator::class);
     }
 
     public function fleet(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Vehicles\Fleet::class);
+        return $this->belongsTo(Fleet::class);
     }
 }

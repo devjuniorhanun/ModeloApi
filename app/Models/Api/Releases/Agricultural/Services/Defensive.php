@@ -2,7 +2,7 @@
 
 namespace App\Models\Api\Releases\Agricultural\Services;
 
-use App\Models\Api\Registrations\Agricultural\{TypeOperation};
+use App\Models\Api\Registrations\Agricultural\{AgriculturalOperator, TypeOperation};
 use App\Models\Api\Registrations\Harvest\{Crop, Culture};
 use App\Models\Api\Registrations\Propertie\Areas\Field;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -66,5 +66,20 @@ class Defensive extends Model
     public function field(): BelongsTo
     {
         return $this->belongsTo(Field::class);
+    }
+
+    public function agriculturalOperator(): BelongsTo
+    {
+        return $this->belongsTo(AgriculturalOperator::class,);
+    }
+
+    public function operators()
+    {
+        return $this->hasMany(Operator::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(ProductService::class);
     }
 }

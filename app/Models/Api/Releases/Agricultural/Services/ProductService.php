@@ -2,6 +2,8 @@
 
 namespace App\Models\Api\Releases\Agricultural\Services;
 
+use App\Models\Api\Registrations\Agricultural\TypeOperation;
+use App\Models\Api\Registrations\Product\Product;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -33,7 +35,7 @@ class ProductService extends Model
 
     public function operation(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Agricultural\TypeOperation::class);
+        return $this->belongsTo(TypeOperation::class);
     }
 
     public function product(): BelongsTo

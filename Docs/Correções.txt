@@ -1,0 +1,1 @@
+no formulário Nova Variedade colocar o campo Cultura como primeiro e colocar os campos Dias de Florescimento e Status um ao lado do outro
