@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('farm_id')->constrained();
             $table->string('name');
-            $table->string('area');
+            $table->double('area', 10, 2);
             $table->string('block', 2);
             $table->string('status', 1)->default('A');
             $table->timestamps();

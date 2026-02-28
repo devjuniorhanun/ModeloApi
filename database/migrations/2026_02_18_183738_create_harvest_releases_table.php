@@ -25,13 +25,13 @@ return new class extends Migration
             $table->date('release_date');
             $table->string('shipping_number');
             $table->string('control_number');
-            $table->string('gross_weight');
-            $table->string('discount_weight');
-            $table->string('discount');
-            $table->string('net_weight');
-            $table->string('liquid_bags');
-            $table->string('gross_bags');
-            $table->string('shipping_value');
+            $table->double('gross_weight', 10, 2)->default('0.00');
+            $table->double('discount_weight', 10, 2)->default('0.00');
+            $table->double('discount', 10, 2)->default('0.00');
+            $table->double('net_weight', 10, 2)->default('0.00');
+            $table->double('liquid_bags', 10, 2)->default('0.00');
+            $table->double('gross_bags', 10, 2)->default('0.00');
+            $table->double('shipping_value', 10, 2)->default('0.00');
             $table->timestamps();
         });
 

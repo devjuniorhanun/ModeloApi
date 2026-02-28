@@ -18,11 +18,11 @@ return new class extends Migration
             $table->foreignUuid('product_group_id')->constrained();
             $table->foreignUuid('sub_group_product_id')->constrained();
             $table->string('name')->unique();
-            $table->string('stock')->default('0.00');
+            $table->double('stock', 10, 2)->default('0.00');
             $table->string('stock_location');
-            $table->string('minimum_quantity')->default('0.00');
-            $table->string('drum_box')->default('0.00');
-            $table->string('gallon_package')->default('0.00');
+            $table->double('minimum_quantity', 10, 2)->default('0.00');
+            $table->double('drum_box', 10, 2)->default('0.00');
+            $table->double('gallon_package', 10, 2)->default('0.00');
             $table->string('unit', 1)->default('K');
             $table->string('status', 1)->default('A');
             $table->timestamps();

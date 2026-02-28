@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignUuid('product_id')->constrained();
             $table->foreignUuid('fleet_id')->constrained();
             $table->date('release_date');
-            $table->string('quantity');
-            $table->string('hour_meter_kilometer');
+            $table->double('quantity', 10, 2)->default('0.00');
+            $table->double('hour_meter_kilometer', 10, 2)->default('0.00');
             $table->timestamps();
         });
 

@@ -20,7 +20,7 @@ class Operator extends Model
      */
     protected $fillable = [
         'defensive_id',
-        'agriculturalOperator_id',
+        'agricultural_operator_id',
         'fleet_id',
         'function',
     ];

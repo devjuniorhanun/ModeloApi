@@ -39,9 +39,9 @@ class DefensiveController extends Controller
                 // Percorre os operadores agrícolas associados ao campo e cria os relacionamentos
                 foreach ($data['operators'] as $operator) {
                     //
-                    $op = Operator::create([
+                    $op = $defensive->operators()->create([
                         'defensive_id' => $defensive->id,
-                        'agriculturalOperator_id' => $operator['operator_id'],
+                        'agricultural_operator_id' => $operator['operator_id'],
                         'fleet_id' => $operator['fleet_id'],
                         'function' => $operator['function'],
                     ]);
@@ -51,7 +51,7 @@ class DefensiveController extends Controller
                         foreach ($data['products'] as $product) {
                             $defensive->products()->create([
                                 'defensive_id' => $defensive->id,
-                                'operation_id' => $op->id,
+                                'agricultural_operator_id' => $operator['operator_id'],
                                 'product_id' => $product['product_id'],
                                 'dose' => $product['dose'],
                                 'pump' => $product['pump'],
@@ -61,10 +61,7 @@ class DefensiveController extends Controller
                 }
                 return response()->json($defensive, 201);
             });
-            //dd($field['area']);
-
         }
-        //dd($data);
     }
 
     /**

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignUuid('crop_id')->constrained();
             $table->foreignUuid('culture_id')->constrained();
             $table->foreignUuid('variety_culture_id')->constrained();
-            $table->string('area');
+            $table->double('area', 10, 2);
             $table->string('status', 1)->default('A');
             $table->timestamps();
         });

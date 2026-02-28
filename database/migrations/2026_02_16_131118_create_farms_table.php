@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignUuid('owner_id')->constrained();
             $table->foreignUuid('producer_id')->constrained();
             $table->string('name');
-            $table->string('total_area');
+            $table->double('total_area', 10, 2);
             $table->string('status', 1)->default('A');
             $table->timestamps();
         });

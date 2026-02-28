@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignUuid('crop_id')->constrained();
             $table->string('block', 2);
             $table->string('route', 2);
-            $table->string('price');
+            $table->double('price', 10, 2);
             $table->string('status', 1)->default('A');
             $table->timestamps();
         });

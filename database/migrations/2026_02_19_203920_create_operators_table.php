@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('operators', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('defensive_id')->constrained('defensives');
-            $table->foreignUuid('agriculturalOperator_id')->constrained();
+            $table->foreignUuid('agricultural_operator_id')->constrained();
             $table->foreignUuid('fleet_id')->constrained();
             $table->string('function');
             $table->timestamps();

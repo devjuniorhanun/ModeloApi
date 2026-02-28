@@ -17,9 +17,9 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('entry_invoice_id')->constrained();
             $table->foreignUuid('product_id')->constrained();
-            $table->string('quantity');
-            $table->string('unit_value');
-            $table->string('total_value');
+            $table->double('quantity', 10, 2)->default('0.00');
+            $table->double('unit_value', 10, 2)->default('0.00');
+            $table->double('total_value', 10, 2)->default('0.00');
             $table->timestamps();
         });
 

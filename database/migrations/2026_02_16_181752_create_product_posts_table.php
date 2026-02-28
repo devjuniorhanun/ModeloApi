@@ -17,9 +17,9 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('post_id')->constrained();
             $table->foreignUuid('product_id')->constrained();
-            $table->string('actual_stock');
-            $table->string('minimum_stock');
-            $table->string('maximum_stock');
+            $table->double('actual_stock', 10, 2)->default('0.00');
+            $table->double('minimum_stock', 10, 2)->default('0.00');
+            $table->double('maximum_stock', 10, 2)->default('0.00');
             $table->string('status', 1)->default('A');
             $table->timestamps();
         });

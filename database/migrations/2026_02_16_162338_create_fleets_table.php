@@ -28,8 +28,8 @@ return new class extends Migration
             $table->string('acquisition_value')->nullable();
             $table->string('fuel_type', 1)->default('D');
             $table->string('marking_type', 1)->default('H');
-            $table->string('starting_meter');
-            $table->string('end_gauge');
+            $table->double('starting_meter', 10, 2);
+            $table->double('end_gauge', 10, 2)->nullable();
             $table->string('status', 1)->default('A');
             $table->timestamps();
         });

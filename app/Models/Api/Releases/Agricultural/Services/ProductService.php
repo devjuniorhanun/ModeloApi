@@ -2,7 +2,7 @@
 
 namespace App\Models\Api\Releases\Agricultural\Services;
 
-use App\Models\Api\Registrations\Agricultural\TypeOperation;
+use App\Models\Api\Registrations\Agricultural\AgriculturalOperator;
 use App\Models\Api\Registrations\Product\Product;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,7 +20,7 @@ class ProductService extends Model
      */
     protected $fillable = [
         'defensive_id',
-        'operation_id',
+        'agricultural_operator_id',
         'product_id',
         'dose',
         'pump',
@@ -33,9 +33,9 @@ class ProductService extends Model
         return $this->belongsTo(Defensive::class);
     }
 
-    public function operation(): BelongsTo
+    public function agriculturalOperator(): BelongsTo
     {
-        return $this->belongsTo(TypeOperation::class);
+        return $this->belongsTo(AgriculturalOperator::class,);
     }
 
     public function product(): BelongsTo

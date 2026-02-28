@@ -82,4 +82,5 @@ class Defensive extends Model
     {
         return $this->hasMany(ProductService::class);
     }
+    
 }

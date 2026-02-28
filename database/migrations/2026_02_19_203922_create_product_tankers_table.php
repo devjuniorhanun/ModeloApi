@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('product_id')->constrained();
             $table->foreignUuid('operator_id')->constrained();
-            $table->string('quantity');
+            $table->double('quantity', 10, 2)->default('0.00');
             $table->timestamps();
         });
 

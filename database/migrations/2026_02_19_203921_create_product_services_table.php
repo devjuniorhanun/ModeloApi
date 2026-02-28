@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('product_services', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('defensive_id')->constrained('defensives');
-            $table->foreignUuid('operation_id')->constrained();
+            $table->foreignUuid('agricultural_operator_id')->constrained();
             $table->foreignUuid('product_id')->constrained();
-            $table->string('dose');
-            $table->string('pump');
-            $table->string('dose_used');
-            $table->string('pump_used');
+            $table->double('dose', 10, 3)->default('0.000');
+            $table->double('pump', 10, 3)->default('0.00');
+            $table->double('dose_used', 10, 3)->default('0.000');
+            $table->double('pump_used', 10, 3)->default('0.000');
             $table->timestamps();
         });
 

@@ -7,13 +7,13 @@ models:
     culture_id: uuid foreign # cultura
     field_id: uuid foreign # talhão
     application_date: date # data da aplicação    
-    pump_volume: decimal(10,2) # volume da bomba
-    flow: decimal(3) # vazão
-    ump_capacity: decimal(10,2) # capacidade de bomba
-    recommended_pump_volume: decimal(10,2) # volume recomendado da bomba
-    used_bomb: decimal(10,2) # bombas reais
-    difference_bomb: decimal(10,2) # diferença de bombas
-    applied_area: decimal(10,2) # área aplicada
+    pump_volume: double(10,2) # volume da bomba
+    flow: double(3) # vazão
+    ump_capacity: double(10,2) # capacidade de bomba
+    recommended_pump: double(10,2) # bombas recomendadas
+    used_bomb: double(10,2) # bombas reais
+    difference_bomb: double(10,2) # diferença de bombas
+    applied_area: double(10,2) # área aplicada
     observation: text # observação
     status: string:1 default:A # status do lançamento (A - Aberta, F - Finalizada, C - Campo, D - Deletada)
     timestamps: true
@@ -32,14 +32,14 @@ models:
     defensive_id: uuid foreign # lançamento defensivo
     operation_id: uuid foreign # operação
     product_id: uuid foreign # produto
-    dose: decimal(10,2) # dose aplicada por ha
-    pump: decimal(10,2) # dose aplicada por bomba
-    dose_used: decimal(10,2) # dose real aplicada por ha
-    pump_used: decimal(10,2) # dose real aplicada por bomba
+    dose: double(10,2) # dose aplicada por ha
+    pump: double(10,2) # dose aplicada por bomba
+    dose_used: double(10,2) # dose real aplicada por ha
+    pump_used: double(10,2) # dose real aplicada por bomba
 
   # Lançamentos Serviços Agrícolas Produtos por Operador
   Api\Releases\Agricultural\Services\ProductTanker:
     id: uuid primary
     product_id: uuid foreign # produto
     operator_id: uuid foreign # operador
-    quantity: decimal(10,3) # quantidade aplicada
+    quantity: double(10,3) # quantidade aplicada
