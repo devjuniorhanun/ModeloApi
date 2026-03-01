@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Releases\Agricultural\Services;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\Releases\Agricultural\Services\DefensiveResource;
+use App\Http\Resources\Api\Releases\Agricultural\Services\ServiceOrderResource;
 use App\Models\Api\Registrations\Propertie\Areas\Field;
 use App\Models\Api\Releases\Agricultural\Services\Defensive;
 use App\Models\Api\Releases\Agricultural\Services\Operator;
@@ -95,5 +96,11 @@ class DefensiveController extends Controller
         $freeArea = $field->area - $usedArea;
 
         return response()->json(['free_area' => $freeArea]);
+    }
+
+    public function getOrderByDefensive($defensiveId)
+    {
+        $defensive = Defensive::with('typeOperation', 'crop', 'culture', 'field', 'agriculturalOperator', 'operators', 'products')->findOrFail($defensiveId);
+        return new ServiceOrderResource($defensive);
     }
 }

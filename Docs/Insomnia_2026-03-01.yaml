@@ -1,0 +1,371 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Api
+meta:
+  id: wrk_5db068152b484d0ca695e6aef1691a9c
+  created: 1764940982325
+  modified: 1764940982325
+  description: ""
+collection:
+  - url: GET http://localhost/api/users
+    name: Login
+    meta:
+      id: req_d8dcd40767224bdfb8691d8a355f5f53
+      created: 1764940992116
+      modified: 1768843978549
+      isPrivate: false
+      description: ""
+      sortKey: -1764940992116
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+            "email": "admin@admin.com.br",
+            "password": "123456789",
+            "device": "Pc"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:81/api/auth/login
+    name: Login
+    meta:
+      id: req_b02b32a981da457895373c39c37f75e4
+      created: 1768843986210
+      modified: 1771003190647
+      isPrivate: false
+      description: ""
+      sortKey: -1768843986210
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+            "email": "admin@admin.com.br",
+            "password": "123456789"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost/api/agricultural-years
+    name: New Criado
+    meta:
+      id: req_4b792105ad25458dbcb7d214f474c449
+      created: 1768844080727
+      modified: 1768850088909
+      isPrivate: false
+      description: ""
+      sortKey: -1766892489163
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+            "name": "Ano 97",
+            "opening_date": "2025-05-01",
+            "closing_date": "2026-04-30",
+            "status": "D"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost/api/agricultural-years/019bd75c-ded7-71ec-808f-07fc5a09b008
+    name: Alteração
+    meta:
+      id: req_c2f1067c1c1d4a1cb0ecc835af8ee198
+      created: 1768844942196
+      modified: 1768846397599
+      isPrivate: false
+      description: ""
+      sortKey: -1765916740639.5
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        		"id": "019bd75c-ded7-71ec-808f-07fc5a09b008",
+        		"name": "Ano",
+            "opening_date": "2025-05-02",
+            "closing_date": "2026-04-30",
+            "status": "D"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:81/api/registrations/harvest/cultures/varieties/019c9027-76a0-70d2-9555-d6cfd6ba89b2
+    name: Locação de Talhão
+    meta:
+      id: req_548542a4f87b4b6db8056fbc6e10ba4c
+      created: 1769093756865
+      modified: 1772037444512
+      isPrivate: false
+      description: ""
+      sortKey: -1769093756865
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: 3|e2fGq1xigSWDbVe6AaAf2s2MtedRWvz0Q1JajCCi5c19b5d4
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:81/api/auth/logout
+    name: Logout
+    meta:
+      id: req_51be49b8a69541d7a549cba868ebf528
+      created: 1771003020463
+      modified: 1771003277985
+      isPrivate: false
+      description: ""
+      sortKey: -1764940992066
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+            "email": "admin@admin.com.br",
+            "password": "123456789",
+            "device": "Pc"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: 9|d9MvMQAVHwtIzrKRIQkQCNJv8jFiAqKvNFH1KUxt1c1ed8d0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:81/api/registrations/suppliers/warehouses
+    name: Lista Anos
+    meta:
+      id: req_b19bc80f52724370835c266af0e5533e
+      created: 1771076341172
+      modified: 1772042243218
+      isPrivate: false
+      description: ""
+      sortKey: -1768968871537.5
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: 4|mi4rTp6VCL6R00fZjiBfS7ZabofltmRd3yiwwBEk118d95f6
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:81/api/entries/agricultural/defensives/order/019ca472-4fb9-739b-9c52-d11c0a729dca
+    name: Lista Produtores
+    meta:
+      id: req_52ad369218b148cbbf88f1e332ee6367
+      created: 1771448843698
+      modified: 1772391780150
+      isPrivate: false
+      description: ""
+      sortKey: -1768906428873.75
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: 2|WublQHLiLXwdRU2MdnrOmTvTO0NP41NrPcr5pQ5d7ad1e9cc
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:81/api/entries/agricultural/defensives
+    name: Novo Fornecedor
+    meta:
+      id: req_9b5f19968cd748d789bdcb063268225f
+      created: 1771690205132
+      modified: 1772212227757
+      isPrivate: false
+      description: ""
+      sortKey: -1768875207541.875
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "crop_id": "019c9e9d-f2de-716f-b313-ba90bbabe675",
+          "culture_id": "019c9b1d-1b2f-716d-aa40-5ab98a69c986",
+          "type_operation_id": "019c9e9e-cc8b-73db-9272-0102a5261042",
+          "application_date": "2026-02-27",
+          "pump_volume": 2500,
+          "fields": [
+            {
+              "field_id": "019c9e9c-ef34-719b-9472-7f9cb5a195ea",
+              "field_name": "TALHÃO 01",
+              "area": 0
+            },
+            {
+              "field_id": "019c9e9c-ef34-719b-9472-7f9cb5a195ea",
+              "field_name": "TALHÃO 01",
+              "area": 0
+            }
+          ],
+          "flow": 100,
+          "ump_capacity": 25,
+          "recommended_pump_volume": 0,
+          "used_bomb": 0,
+          "difference_bomb": 0,
+          "applied_area": 0,
+          "observation": "obs",
+          "status": "A",
+          "operators": [
+            {
+              "operator_id": "019c9e9f-e0c0-7266-999f-8a90d1c71178",
+              "fleet_id": "019c9ecd-c598-7340-9ddd-45c10d0c43e7",
+              "operator_name": "FUNCIONÁRIO 01",
+              "fleet_name": "FROTA 12",
+              "function": "T"
+            }
+          ],
+          "products": [
+            {
+              "product_id": "019c9b24-d76a-728d-80e5-6ec309739e7e",
+              "product_name": "sadf",
+              "dose": 0.8,
+              "pump": 20
+            },
+            {
+              "product_id": "019c9b24-d76a-728d-80e5-6ec309739e7e",
+              "product_name": "sadf",
+              "dose": 1,
+              "pump": 25
+            }
+          ]
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+    authentication:
+      type: bearer
+      token: 2|rESQH0RAyj0qg3rTSHVwQoP3wWsibADDcAmQSwo12d5c8782
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_9622b7b191e39fe32b0d2976c8d68467982ab31a
+    created: 1764940982327
+    modified: 1764940982327
+environments:
+  name: Base Environment
+  meta:
+    id: env_9622b7b191e39fe32b0d2976c8d68467982ab31a
+    created: 1764940982327
+    modified: 1764940982327
+    isPrivate: false
