@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\Registrations\Propertie\Areas\{FarmController, Fiel
 use App\Http\Controllers\Api\Registrations\Supplier\{DriverController, EmployeeController, LanyardController, SupplierController, TypeSupplierController, WarehouseController};
 use App\Http\Controllers\Api\Registrations\Vehicle\{FleetBrandController, FleetController, FleetGroupController, FleetModelController};
 use App\Http\Controllers\Api\Releases\Agricultural\Services\{DefensiveController};
+use App\Http\Controllers\Api\Releases\Harvest\{HarvestReleaseController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/registrations/properties/areas/plot-fields', PlotFieldController::class);
     Route::get('/registrations/properties/areas/fields/free_area/{cropId}/{fieldId}', [PlotFieldController::class,'getFreeAreaByField']);
     Route::resource('/registrations/properties/areas/matrix-freights', MatrixFreightController::class);
+    Route::get('/registrations/properties/areas/matrix-freights/freight/', MatrixFreightController::class);
 
     Route::resource('/registrations/suppliers/type-suppliers', TypeSupplierController::class);
     Route::resource('/registrations/suppliers/suppliers', SupplierController::class);
@@ -65,6 +67,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/entries/agricultural/defensives/free_area/{fieldId}', [DefensiveController::class, 'getFreeArea']);
     Route::get('/entries/agricultural/defensives/order/{defensiveId}', [DefensiveController::class, 'getOrderByDefensive']);
     ///entries/agricultural/defensives/order/:id
+
+    Route::resource('/entries/harvests/harvest-releases', HarvestReleaseController::class);
 
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 });

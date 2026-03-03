@@ -1,11 +1,8 @@
-no GRUD Serviços Agrícolas deve criar um novo formulário para a Edição, deve ser uma copia do formulário de cadastro e remover a 
-tab Talhões, incluir na aba Serviços Agrícola os campos field_id mostrando o Talhão, applied_area, recommended_pump, used_bomb, 
-difference_bomb, assim que o campo used_bomb perder o foco ele deverar verificar a diferença entre os campos (recommended_pump, 
-used_bomb) diferença entre bomba recomendada e bomba usada, e colocar a diferença em porcentagem no campo difference_bomb
-incluir uma nova tab "O.S Anterior nesse tab precisa ter um listview e uma botão para chamar um formulário para informar Número 
-de O.S e Quantidade Usada
-
-
-
-analise o arquivo em anexo e replique as informações, na listagem do Serviços Agrícolas, crie um nova nova ação com o titulo 
-"Ordem" passando o id da ordem de serviço abrindo em uma nova página e gerando um pdf
+no formulário Nova Colheita no campo Motorista de seleção deve ter um meio de digitar o nome para facilitar encontrar o Motorista.
+muda o nomo do Locação de Talhão para Talhão, deve trazer o nome do Talhão esta esta em Locação de Talhões > Talhão, e esse select
+deve ter a opção de digita para facilitare encontrar o nome do talhão.
+remover o campo Matriz de Frete, quando o campo Peso Desconto perder o foco deve realizar uma operação (Peso Bruto - Peso Desconto)
+e jogar o valor em Peso Líquido, e também tem que realizar as seguintes operações (Peso Bruto / 60) e coloca o valor no campo Sacas Brutas
+e (Peso Líquido / 60) e colocar o valor em Sacas Líquidas, depois tudo tudo isso deve realizar uma consulta na api através do endpoint
+(registrations/properties/areas/matrix-freights/freight/) e deve passar os id Safra, e o id Locação de Talhão, pegar o valor vindo
+da api e multiplicar (Sacas Brutas * value)

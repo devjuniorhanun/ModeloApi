@@ -2,6 +2,10 @@
 
 namespace App\Models\Api\Releases\Harvest;
 
+use App\Models\Api\Registrations\Harvest\{Crop};
+use App\Models\Api\Registrations\Propertie\{Owner};
+use App\Models\Api\Registrations\Propertie\Areas\{MatrixFreight, PlotField};
+use App\Models\Api\Registrations\Supplier\{Driver, Lanyard, Warehouse};
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -50,36 +54,36 @@ class HarvestRelease extends Model
 
     public function crop(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Harvest\Crop::class);
+        return $this->belongsTo(Crop::class);
     }
 
     public function driver(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Suppliers\Driver::class);
+        return $this->belongsTo(Driver::class);
     }
 
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Propertie\Owner::class);
+        return $this->belongsTo(Owner::class);
     }
 
     public function plotField(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Propertie\Areas\PlotField::class);
+        return $this->belongsTo(PlotField::class);
     }
 
     public function warehouse(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Suppliers\Warehouse::class);
+        return $this->belongsTo(Warehouse::class);
     }
 
     public function lanyard(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Suppliers\Lanyard::class);
+        return $this->belongsTo(Lanyard::class);
     }
 
     public function matrixFreight(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Propertie\Areas\MatrixFreight::class);
+        return $this->belongsTo(MatrixFreight::class);
     }
 }
