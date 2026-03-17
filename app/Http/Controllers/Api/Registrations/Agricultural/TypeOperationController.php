@@ -39,7 +39,9 @@ class TypeOperationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $typeOperation = TypeOperation::findOrFail($id);
+        $typeOperation->update($request->all());
+        return response()->json($typeOperation, 200);
     }
 
     /**

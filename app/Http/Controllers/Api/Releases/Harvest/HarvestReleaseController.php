@@ -46,4 +46,13 @@ class HarvestReleaseController extends Controller
     {
         //
     }
+
+    public function getHarvestReleaseByControlNumber(string $cropId, string $controlNumber, string $shippingNumber)
+    {
+        // Lógica para buscar o lançamento de colheita pelo número de controle e número de embarque
+        // Exemplo: HarvestRelease::where('crop_id', $cropId)->where('control_number', $controlNumber)->where('shipping_number', $shippingNumber)->first();
+        return response()->json([
+            'data' => 1, // Substitua por $harvestRelease
+        ]);
+    }
 }

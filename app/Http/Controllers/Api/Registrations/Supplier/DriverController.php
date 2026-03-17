@@ -40,7 +40,9 @@ class DriverController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $driver = Driver::findOrFail($id);
+        $driver->update($request->all());
+        return response()->json($driver, 200);
     }
 
     /**

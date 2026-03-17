@@ -40,7 +40,9 @@ class AgriculturalOperatorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $agriculturalOperator = AgriculturalOperator::findOrFail($id);
+        $agriculturalOperator->update($request->all());
+        return new AgriculturalOperatorResource($agriculturalOperator);
     }
 
     /**

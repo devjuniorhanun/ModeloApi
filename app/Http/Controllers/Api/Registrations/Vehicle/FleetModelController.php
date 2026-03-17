@@ -40,7 +40,9 @@ class FleetModelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $fleetModel = FleetModel::findOrFail($id);
+        $fleetModel->update($request->all());
+        return response()->json($fleetModel, 200);
     }
 
     /**

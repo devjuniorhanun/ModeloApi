@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('type_post_id')->constrained();
             $table->string('name')->unique();
+            $table->string('status', 1)->default('A');
             $table->timestamps();
         });
 

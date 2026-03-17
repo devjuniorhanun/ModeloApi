@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Api\Registrations\Product;
+namespace App\Http\Controllers\Api\Registrations\Fuel;
 
 use App\Http\Controllers\Controller;
-use App\Models\Api\Registrations\Product\Product;
-use App\Http\Resources\Api\Registrations\Product\ProductResource;
+use App\Http\Resources\Api\Registrations\Fuel\PostResource;
+use App\Models\Api\Registrations\Fuel\Post;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::with('productGroup','subGroupProduct')->get();
-        //dd($products);
-        return ProductResource::collection($products);
+        $posts = Post::with('typePost')->get();
+        return PostResource::collection($posts);
     }
 
     /**
@@ -24,9 +23,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        $product = Product::create($request->all());
-        return response()->json($product, 201);
+        $post = Post::create($request->all());
+        return response()->json($post, 201);
     }
 
     /**
@@ -42,9 +40,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $product = Product::findOrFail($id);
-        $product->update($request->all());
-        return response()->json($product);
+        //
     }
 
     /**

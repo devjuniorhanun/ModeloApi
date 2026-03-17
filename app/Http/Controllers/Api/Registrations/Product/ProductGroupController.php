@@ -40,7 +40,9 @@ class ProductGroupController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $productGroup = ProductGroup::findOrFail($id);
+        $productGroup->update($request->all());
+        return response()->json($productGroup, 200);
     }
 
     /**

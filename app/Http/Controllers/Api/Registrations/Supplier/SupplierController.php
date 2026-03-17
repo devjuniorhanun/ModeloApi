@@ -48,7 +48,14 @@ class SupplierController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::transaction(function () use ($request, $id) {
+            $supplier = Supplier::findOrFail($id);
+            $supplier->update($request->all());
+            $supplier->bankSupplier()->update($request->only(['supplier_name', 'bank_name', 'agency_number', 'account_number', 'operation_number', 'pix_key', 'account_type', 'status']));
+            $supplier->typeSuppliers()->sync($request->input('type_supplier_ids', []));
+
+            return response()->json($supplier, 200);
+        });
     }
 
     /**

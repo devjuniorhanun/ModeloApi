@@ -2,6 +2,7 @@
 
 namespace App\Models\Api\Registrations\Fuel;
 
+use App\Models\Api\Registrations\Product\Product;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

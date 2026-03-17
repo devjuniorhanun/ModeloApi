@@ -41,7 +41,9 @@ class FieldController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $field = Field::findOrFail($id);
+        $field->update($request->all());
+        return response()->json($field, 200);
     }
 
     /**

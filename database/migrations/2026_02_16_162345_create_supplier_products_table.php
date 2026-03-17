@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignUuid('product_id')->constrained();
             $table->string('product_code');
             $table->string('volume');
+            $table->string('status', 1)->default('A');
             $table->timestamps();
         });
 

@@ -39,7 +39,9 @@ class FleetGroupController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $FleetGroup = FleetGroup::findOrFail($id);
+        $FleetGroup->update($request->all());
+        return response()->json($FleetGroup, 200);
     }
 
     /**

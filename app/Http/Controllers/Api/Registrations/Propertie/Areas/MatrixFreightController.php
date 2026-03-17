@@ -40,7 +40,9 @@ class MatrixFreightController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $matrixFreight = MatrixFreight::findOrFail($id);
+        $matrixFreight->update($request->all());
+        return response()->json($matrixFreight, 200);
     }
 
     /**

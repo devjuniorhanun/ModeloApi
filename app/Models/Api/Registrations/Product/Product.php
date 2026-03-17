@@ -29,7 +29,7 @@ class Product extends Model
         'status',
     ];
 
-    public function groupProduct(): BelongsTo
+    public function productGroup(): BelongsTo
     {
         return $this->belongsTo(ProductGroup::class);
     }

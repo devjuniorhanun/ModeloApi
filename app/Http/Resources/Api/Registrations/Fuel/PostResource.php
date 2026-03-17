@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Api\Registrations\Product;
+namespace App\Http\Resources\Api\Registrations\Fuel;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SubGroupProductResoucer extends JsonResource
+class PostResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,10 +14,10 @@ class SubGroupProductResoucer extends JsonResource
      */
     public function toArray(Request $request): array
     {
-         return [
+        return [
             'id' => $this->id,
-            'product_group_id' => $this->product_group_id,
-            'product_group_name' => $this->productGroup->name,
+            'type_post_id' => $this->typePost->id,
+            'type_post_name' => $this->typePost->name,
             'name' => $this->name,
             'status' => $this->status,
         ];

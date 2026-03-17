@@ -43,7 +43,9 @@ class FarmController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $farm = Farm::findOrFail($id);
+        $farm->update($request->all());
+        return response()->json($farm, 200);
     }
 
     /**

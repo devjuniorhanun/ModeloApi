@@ -42,7 +42,9 @@ class ProducerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $producer = Producer::findOrFail($id);
+        $producer->update($request->all());
+        return response()->json($producer, 200);
     }
 
     /**

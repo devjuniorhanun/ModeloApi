@@ -1,8 +1,11 @@
-no formulário Nova Colheita no campo Motorista de seleção deve ter um meio de digitar o nome para facilitar encontrar o Motorista.
-muda o nomo do Locação de Talhão para Talhão, deve trazer o nome do Talhão esta esta em Locação de Talhões > Talhão, e esse select
-deve ter a opção de digita para facilitare encontrar o nome do talhão.
-remover o campo Matriz de Frete, quando o campo Peso Desconto perder o foco deve realizar uma operação (Peso Bruto - Peso Desconto)
-e jogar o valor em Peso Líquido, e também tem que realizar as seguintes operações (Peso Bruto / 60) e coloca o valor no campo Sacas Brutas
-e (Peso Líquido / 60) e colocar o valor em Sacas Líquidas, depois tudo tudo isso deve realizar uma consulta na api através do endpoint
-(registrations/properties/areas/matrix-freights/freight/) e deve passar os id Safra, e o id Locação de Talhão, pegar o valor vindo
-da api e multiplicar (Sacas Brutas * value)
+Cria um novo Sub Modulo "Financial" com o CRUD "Administrative Centers" ele vai no
+menu Registro/Financeiro/"Centro Administrativos" ele vai conter
+os seguintes campos (Producer, Farm, Cei,"State Registration", Status),
+o Producer vai traser somente os Produtores Ativos, assim que o Producer
+perder o foco deve carregar as Fazenda Pertencentes a esse Produtor no campo
+Farm, os campos Producer e Farm, devera ter um filtro para pesquisar o 
+Produtor e a Fazenda.
+
+Dentro do Sub Modulo "Financial" cria o CRUD "Cost Center" ele vai no
+menu Registro/Financeiro/"Centro Custo" ele vai conter
+os seguintes campos (Name, Status)

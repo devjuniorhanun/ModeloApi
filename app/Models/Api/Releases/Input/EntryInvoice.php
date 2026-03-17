@@ -2,6 +2,8 @@
 
 namespace App\Models\Api\Releases\Input;
 
+use App\Models\Api\Registrations\Propertie\Producer;
+use App\Models\Api\Registrations\Supplier\Supplier;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -47,6 +49,6 @@ class EntryInvoice extends Model
 
     public function producer(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Api\Registrations\Propertie\Producer::class);
+        return $this->belongsTo(Producer::class);
     }
 }

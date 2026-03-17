@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Api\Registrations\Product;
+namespace App\Http\Controllers\Api\Registrations\Fuel;
 
 use App\Http\Controllers\Controller;
-use App\Models\Api\Registrations\Product\Product;
-use App\Http\Resources\Api\Registrations\Product\ProductResource;
+use App\Http\Resources\Api\Registrations\Fuel\ProductPostResource;
+use App\Models\Api\Registrations\Fuel\ProductPost;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductPostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::with('productGroup','subGroupProduct')->get();
-        //dd($products);
-        return ProductResource::collection($products);
+        $productPosts = ProductPost::with(['post', 'product'])->get();
+        return ProductPostResource::collection($productPosts);
+
     }
 
     /**
@@ -24,9 +24,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        $product = Product::create($request->all());
-        return response()->json($product, 201);
+        $productPost = ProductPost::create($request->all());
+        return response()->json($productPost, 201);
     }
 
     /**
@@ -42,9 +41,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $product = Product::findOrFail($id);
-        $product->update($request->all());
-        return response()->json($product);
+        $productPost = ProductPost::findOrFail($id);
+        $productPost->update($request->all());
+        return response()->json($productPost);
     }
 
     /**

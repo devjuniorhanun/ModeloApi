@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Api\Registrations\Product;
+namespace App\Http\Controllers\Api\Releases\Input;
 
 use App\Http\Controllers\Controller;
-use App\Models\Api\Registrations\Product\Product;
-use App\Http\Resources\Api\Registrations\Product\ProductResource;
+use App\Models\Api\Releases\Input\EntryInvoice;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class EntryInvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::with('productGroup','subGroupProduct')->get();
-        //dd($products);
-        return ProductResource::collection($products);
+        $entryInvoices = EntryInvoice::with(['supplier', 'producer'])->get();
+        return response()->json($entryInvoices);
     }
 
     /**
@@ -24,9 +22,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        $product = Product::create($request->all());
-        return response()->json($product, 201);
+        $entryInvoice = EntryInvoice::create($request->all());
+        return response()->json($entryInvoice, 201);
     }
 
     /**
@@ -42,9 +39,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $product = Product::findOrFail($id);
-        $product->update($request->all());
-        return response()->json($product);
+        $entryInvoice = EntryInvoice::findOrFail($id);
+        $entryInvoice->update($request->all());
+        return response()->json($entryInvoice);
     }
 
     /**

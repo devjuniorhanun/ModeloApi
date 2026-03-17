@@ -40,7 +40,9 @@ class WarehouseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $warehouse = Warehouse::findOrFail($id);
+        $warehouse->update($request->all());
+        return response()->json($warehouse, 200);
     }
 
     /**

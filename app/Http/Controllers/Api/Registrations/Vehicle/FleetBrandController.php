@@ -39,7 +39,9 @@ class FleetBrandController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $fleetBrand = FleetBrand::findOrFail($id);
+        $fleetBrand->update($request->all());
+        return response()->json($fleetBrand, 200);
     }
 
     /**
